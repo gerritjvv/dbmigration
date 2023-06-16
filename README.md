@@ -3,6 +3,14 @@
 Simple no dependency portable database migration script.
 This script is aimed at Postgres, but should be easy to port to any database.
 
+**Project Completeness & liveliness:**
+
+This project is considered feature complete and will only upgrade to add improvements or fix bugs.  
+User feedback and PRs are welcome, but remember, the aim is to keep it simple.  
+
+It should be valid for as long as `psql` and `bash` exist i.e. another 100 years.
+
+ 
 # Objectives
 
 Simplicity and Idempotency.
