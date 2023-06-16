@@ -12,6 +12,14 @@ Simplicity and Idempotency.
 
 You do not need a fancy migration tool or framework. There I've said it.
 
+## Installation
+
+### Linux/MacOS
+
+```
+curl https://raw.githubusercontent.com/gerritjvv/dbmigration/main/migrations.sh -o migrations.sh && chmod +x ./migrations.sh 
+```
+
 ## All you need is SQL in the DB
 
 For almost all database migration tasks, you want to have full power of what happens, and the only tool to do that is
