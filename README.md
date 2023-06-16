@@ -1,7 +1,6 @@
 # dbmigration
 
-Simple no dependency bash database migration
-
+Simple no dependency portable database migration script.
 This script is aimed at Postgres, but should be easy to port to any database.
 
 # Objectives
