@@ -91,3 +91,7 @@ This will run all the downgrades scripts and should only be used by developers w
 | DB_PORT        | The postgres port default 5432                                           |
 | DB_PASSWORD    | The postgres database password, can be empty                             |
 | DB_NAME        | The database name                                                        |
+
+# Tips in writing Idempotent SQL
+
+Use CASCADE, use IF NOT EXISTS, IF EXISTS, use ON CONFLICT DO NOTHING;
