@@ -16,6 +16,7 @@ CMD="$1"
 shift
 
 case $CMD in
+
 configure)
 
   read -rp 'DB HOST: ' DB_HOST
@@ -67,12 +68,25 @@ create)
     echo ""
   fi
 
+  if [ -z "${name}" ]; then
+    name="migration"
+  fi
+
   ts=$(date +%s)
   file="${MIGRATIONS_DIR}/upgrades/${ts}_${name}.sql"
   echo "Creating empty upgrade file $file"
   touch "$file"
-  echo "-- insert commands before this line" >"$file"
-  echo "INSERT INTO public.migration (id) VALUES('${ts}_${name}.sql') ON CONFLICT DO NOTHING;" >>"$file"
+
+  cat >>"${file}" <<EOL
+CREATE SCHEMA IF NOT EXISTS public;
+
+CREATE TABLE IF NOT EXISTS public.migration (
+    id text PRIMARY KEY
+);
+
+-- insert commands before this line
+INSERT INTO public.migration (id) VALUES('${ts}_${name}.sql') ON CONFLICT DO NOTHING;
+EOL
 
   file2="${MIGRATIONS_DIR}/downgrades/${ts}_${name}.sql"
   echo "Creating empty downgrade file $file2"
